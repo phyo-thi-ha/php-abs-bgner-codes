@@ -11,8 +11,11 @@ function showImages(){
         $filname = $file->getFilename();
         $src = "$folder/$filname";
         $mimeType = mime_content_type($src);
+        if ($mimeType === 'image/png' or $mimeType === 'image/jpeg'){
+            $out .= "<li><img src='$src' </li>";
+        }
+        $filesInFolder->next();
     }
-    $out .= "<li>I will soon list all images</li>";
     $out .= "</ul>";
     return $out;
 }
