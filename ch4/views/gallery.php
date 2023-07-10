@@ -12,7 +12,7 @@ function showImages(){
         $src = "$folder/$filname";
         $mimeType = mime_content_type($src);
         if ($mimeType === 'image/png' or $mimeType === 'image/jpeg'){
-            $out .= "<li><img src='$src' </li>";
+            $out .= "<li><img src='$src'> </li>";
         }
         $filesInFolder->next();
     }

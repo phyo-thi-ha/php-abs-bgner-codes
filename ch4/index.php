@@ -3,6 +3,7 @@ ini_set( "display_errors", 1 );
 error_reporting(E_ALL);
 include_once "classes/Page_Data.class.php";
 $pageData = new Page_Data();
+$pageData->addScript("js/lightbox.js");
 $pageData->addCSS( 'css/layout.css');
 $pageData->addCSS('css/navi.css');
 $pageData->title = "Dynamic image gallery";
