@@ -7,6 +7,11 @@ $pageData->title = "PHP/MySQL blog demo";
 $pageData->addCSS("css/blog.css");
 //load navigation
 $pageData->content = include_once "views/admin/admin-navigation.php";
+$dbInfo = "mysql:host=localhost;dbname=simple_blog;port=3308";
+$dbUser = "root";
+$dbPassword = "root";
+$db = new PDO($dbInfo,$dbUser,$dbPassword);
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $navigationIsChecked = isset($_GET['page']);
     if($navigationIsChecked){
     $contrl = $_GET['page'];
