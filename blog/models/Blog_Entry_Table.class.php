@@ -14,6 +14,8 @@ class Blog_Entry_Table
         $entrySQL = "INSERT INTO blog_entry (title,entry_text) VALUES (? , ?)";
         $formData = array($title, $entry);
         $entryStatement = $this->makeStatement($entrySQL, $formData);
+        //return the entry_id of the saved entry
+        return $this->db->lastInsertId();
     }
 
     private function makeStatement($sql, $data = null)
@@ -55,5 +57,15 @@ class Blog_Entry_Table
         $sql = "DELETE FROM blog_entry WHERE entry_id=?";
         $data = array($id);
         $statement = $this->makeStatement($sql,$data);
+    }
+
+    public function updateEntry($id, $title, $entry){
+        $sql = "UPDATE blog_entry
+                SET title=?,
+                entry_text=?
+                WHERE entry_id=?";
+        $data = array($title,$entry,$id);
+        $statement = $this->makeStatement($sql,$data);
+        return $statement;
     }
 }
